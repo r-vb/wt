@@ -1,0 +1,523 @@
+1. Hide and Show:
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>jQuery Effects</title>
+  <script src="https://code.jquery.com/jquery-3.6.4.min.js"></script>
+  <style>
+    .box {
+      width: 100px;
+      height: 100px;
+      background-color: #3498db;
+      margin: 20px;
+    }
+  </style>
+</head>
+<body>
+
+  <div class="box" id="myBox"></div>
+
+  <script>
+    // Hide and Show
+    $(document).ready(function () {
+      $("#myBox").click(function () {
+        $(this).hide(500).show(500);
+      });
+    });
+  </script>
+
+</body>
+</html>
+------------------------------------------------------
+2. Fade In and Fade Out:
+<!-- Same HTML setup as above -->
+
+<script>
+  // Fade In and Fade Out
+  $(document).ready(function () {
+    $("#myBox").click(function () {
+      $(this).fadeOut(500).fadeIn(500);
+    });
+  });
+</script>
+------------------------------------------------------
+3. Slide Up and Slide Down:
+<!-- Same HTML setup as above -->
+
+<script>
+  // Slide Up and Slide Down
+  $(document).ready(function () {
+    $("#myBox").click(function () {
+      $(this).slideUp(500).slideDown(500);
+    });
+  });
+</script>
+------------------------------------------------------
+4. Toggle:
+<!-- Same HTML setup as above -->
+
+<script>
+  // Toggle
+  $(document).ready(function () {
+    $("#myBox").click(function () {
+      $(this).toggle(500);
+    });
+  });
+</script>
+------------------------------------------------------
+5. Animate:
+<!-- Same HTML setup as above -->
+
+<script>
+  // Animate
+  $(document).ready(function () {
+    $("#myBox").click(function () {
+      $(this).animate({
+        width: 'toggle',
+        height: 'toggle',
+        opacity: 'toggle'
+      }, 500);
+    });
+  });
+</script>
+------------------------------------------------------
+6. Add/Remove Class:
+<!-- Same HTML setup as above -->
+
+<script>
+  // Add/Remove Class
+  $(document).ready(function () {
+    $("#myBox").click(function () {
+      $(this).toggleClass("highlight", 500);
+    });
+  });
+</script>
+<style>
+  .highlight {
+    background-color: #e74c3c;
+  }
+</style>
+------------------------------------------------------
+7. Delay:
+<!-- Same HTML setup as above -->
+
+<script>
+  // Delay
+  $(document).ready(function () {
+    $("#myBox").click(function () {
+      $(this).fadeOut(500).delay(1000).fadeIn(500);
+    });
+  });
+</script>
+------------------------------------------------------
+8. Slide Toggle:
+<!-- Same HTML setup as above -->
+
+<script>
+  // Slide Toggle
+  $(document).ready(function () {
+    $("#myBox").click(function () {
+      $(this).slideToggle(500);
+    });
+  });
+</script>
+------------------------------------------------------
+9. Stop Animation:
+<!-- Same HTML setup as above -->
+
+<script>
+  // Stop Animation
+  $(document).ready(function () {
+    $("#myBox").hover(
+      function () {
+        $(this).animate({ width: '200px', height: '200px' }, 1000);
+      },
+      function () {
+        $(this).stop().animate({ width: '100px', height: '100px' }, 500);
+      }
+    );
+  });
+</script>
+------------------------------------------------------
+10. Chain multiple effects:
+<!-- Same HTML setup as above -->
+
+<script>
+  // Chain multiple effects
+  $(document).ready(function () {
+    $("#myBox").click(function () {
+      $(this).slideUp(500).fadeOut(500).delay(500).fadeIn(500).slideDown(500);
+    });
+  });
+</script>
+------------------------------------------------------
+11. Custom Easing:
+<!-- Same HTML setup as above -->
+
+<script>
+  // Custom Easing
+  $(document).ready(function () {
+    $("#myBox").click(function () {
+      $(this).animate({ left: '250px' }, { duration: 1000, easing: 'easeInOutExpo' });
+    });
+  });
+</script>
+------------------------------------------------------
+12. Draggable and Resizable:
+<!-- Same HTML setup as above -->
+
+<script>
+  // Draggable and Resizable
+  $(document).ready(function () {
+    $("#myBox").draggable().resizable();
+  });
+</script>
+------------------------------------------------------
+13. AJAX Request:
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>jQuery AJAX</title>
+  <script src="https://code.jquery.com/jquery-3.6.4.min.js"></script>
+</head>
+<body>
+
+  <div id="result"></div>
+
+  <script>
+    // AJAX Request
+    $(document).ready(function () {
+      $("#result").click(function () {
+        $.ajax({
+          url: "https://jsonplaceholder.typicode.com/todos/1",
+          method: "GET",
+          success: function (data) {
+            $("#result").html("User ID: " + data.userId + ", Title: " + data.title);
+          }
+        });
+      });
+    });
+  </script>
+
+</body>
+</html>
+------------------------------------------------------
+14. Tooltip:
+<!-- Same HTML setup as above -->
+
+<script>
+  // Tooltip
+  $(document).ready(function () {
+    $("#myBox").tooltip({
+      content: "This is a tooltip",
+      track: true
+    });
+  });
+</script>
+------------------------------------------------------
+15. Accordions:
+<!-- Same HTML setup as above -->
+
+<script>
+  // Accordions
+  $(document).ready(function () {
+    $("#accordion").accordion();
+  });
+</script>
+------------------------------------------------------
+16. Datepicker:
+<!-- Same HTML setup as above -->
+
+<script>
+  // Datepicker
+  $(document).ready(function () {
+    $("#datepicker").datepicker();
+  });
+</script>
+------------------------------------------------------
+17. Tabs:
+<!-- Same HTML setup as above -->
+
+<script>
+  // Tabs
+  $(document).ready(function () {
+    $("#tabs").tabs();
+  });
+</script>
+------------------------------------------------------
+18. Autocomplete:
+<!-- Same HTML setup as above -->
+
+<script>
+  // Autocomplete
+  $(document).ready(function () {
+    var availableTags = ["Apple", "Banana", "Cherry", "Date", "Fig"];
+    $("#autocomplete").autocomplete({
+      source: availableTags
+    });
+  });
+</script>
+------------------------------------------------------
+19. Scroll Event:
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>jQuery Scroll Event</title>
+  <script src="https://code.jquery.com/jquery-3.6.4.min.js"></script>
+  <style>
+    body {
+      height: 1500px; /* Add enough content to enable scrolling */
+    }
+  </style>
+</head>
+<body>
+
+  <p>Scroll down to see the effect.</p>
+  <div id="scrollMessage">You've reached the bottom!</div>
+
+  <script>
+    // Scroll Event
+    $(document).ready(function () {
+      $(window).scroll(function () {
+        if ($(window).scrollTop() + $(window).height() == $(document).height()) {
+          $("#scrollMessage").fadeIn();
+        } else {
+          $("#scrollMessage").fadeOut();
+        }
+      });
+    });
+  </script>
+
+</body>
+</html>
+------------------------------------------------------
+20. Form Validation:
+<!-- Same HTML setup as above -->
+
+<script>
+  // Form Validation
+  $(document).ready(function () {
+    $("#myForm").submit(function (event) {
+      var inputVal = $("#inputField").val();
+      if (inputVal === "") {
+        alert("Please enter a value!");
+        event.preventDefault();
+      }
+    });
+  });
+</script>
+------------------------------------------------------
+21. Context Menu:
+<!-- Same HTML setup as above -->
+
+<script>
+  // Context Menu
+  $(document).ready(function () {
+    $.contextMenu({
+      selector: '#myBox',
+      items: {
+        edit: { name: 'Edit', callback: function() { alert('Edit clicked'); } },
+        delete: { name: 'Delete', callback: function() { alert('Delete clicked'); } }
+      }
+    });
+  });
+</script>
+------------------------------------------------------
+22. Drag and Drop:
+<!-- Same HTML setup as above -->
+
+<script>
+  // Drag and Drop
+  $(document).ready(function () {
+    $("#myBox").draggable();
+    $("#dropTarget").droppable({
+      drop: function (event, ui) {
+        $(this).addClass("dropped");
+      }
+    });
+  });
+</script>
+<style>
+  #dropTarget {
+    width: 200px;
+    height: 200px;
+    background-color: #ecf0f1;
+    margin-top: 20px;
+  }
+
+  .dropped {
+    background-color: #2ecc71;
+  }
+</style>
+------------------------------------------------------
+23. Change Text:
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Change Text</title>
+  <script src="https://code.jquery.com/jquery-3.6.4.min.js"></script>
+</head>
+<body>
+
+  <p id="myText">Click me to change text!</p>
+
+  <script>
+    // Change Text
+    $(document).ready(function () {
+      $("#myText").click(function () {
+        $(this).text("Text changed!");
+      });
+    });
+  </script>
+
+</body>
+</html>
+------------------------------------------------------
+24. Hover Effect:
+<!-- Same HTML setup as above -->
+
+<script>
+  // Hover Effect
+  $(document).ready(function () {
+    $("#myBox").hover(
+      function () {
+        $(this).css("background-color", "#e74c3c");
+      },
+      function () {
+        $(this).css("background-color", "#3498db");
+      }
+    );
+  });
+</script>
+------------------------------------------------------
+25. Focus and Blur:
+<!-- Same HTML setup as above -->
+
+<script>
+  // Focus and Blur
+  $(document).ready(function () {
+    $("#inputField").focus(function () {
+      $(this).css("background-color", "#ecf0f1");
+    });
+
+    $("#inputField").blur(function () {
+      $(this).css("background-color", "#ffffff");
+    });
+  });
+</script>
+------------------------------------------------------
+26. Prevent Default:
+<!-- Same HTML setup as above -->
+
+<script>
+  // Prevent Default
+  $(document).ready(function () {
+    $("a").click(function (event) {
+      alert("Link clicked, but the default action is prevented.");
+      event.preventDefault();
+    });
+  });
+</script>
+------------------------------------------------------
+27. Slide Toggle with Button:
+<!-- Same HTML setup as above -->
+
+<script>
+  // Slide Toggle with Button
+  $(document).ready(function () {
+    $("#toggleButton").click(function () {
+      $("#myBox").slideToggle(500);
+    });
+  });
+</script>
+------------------------------------------------------
+28. Add and Remove Elements:
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Add and Remove Elements</title>
+  <script src="https://code.jquery.com/jquery-3.6.4.min.js"></script>
+</head>
+<body>
+
+  <ul id="myList">
+    <li>Item 1</li>
+    <li>Item 2</li>
+    <li>Item 3</li>
+  </ul>
+  <button id="addElement">Add Element</button>
+  <button id="removeElement">Remove Element</button>
+
+  <script>
+    // Add and Remove Elements
+    $(document).ready(function () {
+      $("#addElement").click(function () {
+        $("#myList").append("<li>New Item</li>");
+      });
+
+      $("#removeElement").click(function () {
+        $("#myList li:last-child").remove();
+      });
+    });
+  </script>
+
+</body>
+</html>
+------------------------------------------------------
+29. Toggle Class on Click:
+<!-- Same HTML setup as above -->
+
+<script>
+  // Toggle Class on Click
+  $(document).ready(function () {
+    $("#myBox").click(function () {
+      $(this).toggleClass("highlight");
+    });
+  });
+</script>
+<style>
+  .highlight {
+    background-color: #f39c12;
+  }
+</style>
+------------------------------------------------------
+30. Slide Down and Up on Load:
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Slide Down and Up on Load</title>
+  <script src="https://code.jquery.com/jquery-3.6.4.min.js"></script>
+  <style>
+    #myBox {
+      display: none;
+      padding: 10px;
+      background-color: #2ecc71;
+      color: #fff;
+    }
+  </style>
+</head>
+<body>
+
+  <div id="myBox">This box slides down and up on load.</div>
+
+  <script>
+    // Slide Down and Up on Load
+    $(document).ready(function () {
+      $("#myBox").slideDown(1000).delay(2000).slideUp(1000);
+    });
+  </script>
+
+</body>
+</html>
